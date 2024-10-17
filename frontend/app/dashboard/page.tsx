@@ -1,10 +1,10 @@
-import React from "react";
-import { auth, signOut } from "@/auth";
-import { Button } from "@/components/ui/button";
+import React from 'react';
+import { auth, signOut } from '@/auth';
+import { Button } from '@/components/ui/button';
 
 const page = async () => {
   const session = await auth();
-  console.log("client session", session);
+  console.log('client session', session);
 
   return (
     <div>
@@ -12,8 +12,8 @@ const page = async () => {
 
       <form
         action={async () => {
-          "use server";
-          await signOut({ redirectTo: "/" });
+          'use server';
+          await signOut({ redirectTo: '/' });
         }}
       >
         <Button type="submit">Sign out</Button>

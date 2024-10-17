@@ -1,8 +1,8 @@
-import { NextAuthConfig } from "next-auth";
-import Google from "next-auth/providers/google";
+import { NextAuthConfig } from 'next-auth';
+import Google from 'next-auth/providers/google';
 
-const publicRoutes = ["/dashboard"];
-const authRoutes = ["/auth/signin"];
+const publicRoutes = ['/dashboard'];
+const authRoutes = ['/auth/signin'];
 
 export default {
   providers: [Google],
@@ -17,7 +17,7 @@ export default {
 
       if (authRoutes.includes(pathname)) {
         if (isLoggedIn) {
-          return Response.redirect(new URL("/dashboard", nextUrl));
+          return Response.redirect(new URL('/dashboard', nextUrl));
         }
         return true;
       }
@@ -38,13 +38,13 @@ export default {
       if (user) {
         token.sub = user.id;
       }
-      console.log("token:", token);
-      console.log("useer:", user);
+      console.log('token:', token);
+      console.log('useer:', user);
 
       return token;
     },
   },
   pages: {
-    signIn: "/",
+    signIn: '/',
   },
 } satisfies NextAuthConfig;
