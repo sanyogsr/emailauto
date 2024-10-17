@@ -1,7 +1,7 @@
 import { NextAuthConfig } from "next-auth";
 import Google from "next-auth/providers/google";
 
-const publicRoutes = ["/"];
+const publicRoutes = ["/dashboard"];
 const authRoutes = ["/auth/signin"];
 
 export default {
@@ -17,7 +17,7 @@ export default {
 
       if (authRoutes.includes(pathname)) {
         if (isLoggedIn) {
-          return Response.redirect(new URL("/", nextUrl));
+          return Response.redirect(new URL("/dashboard", nextUrl));
         }
         return true;
       }
