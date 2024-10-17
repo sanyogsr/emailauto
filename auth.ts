@@ -8,6 +8,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     strategy: "jwt",
   },
   providers: [Google],
+  secret: process.env.JWT_SECRET,
 
   callbacks: {
     async session({ token, session }) {
